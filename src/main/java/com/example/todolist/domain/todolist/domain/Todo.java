@@ -10,6 +10,9 @@ import org.hibernate.annotations.Comment;
 
 import java.time.LocalDateTime;
 
+import static com.example.todolist.domain.todolist.domain.Status.IN_PROGRESS;
+import static com.example.todolist.domain.todolist.domain.Status.PENDING;
+
 @Getter
 @Entity
 @Table(name = "todos")
@@ -49,5 +52,18 @@ public class Todo {
         this.status = status;
         this.createdDatetime = createdDatetime;
         this.member = member;
+    }
+
+    public String getStatusDescription() {
+        return this.status.getDescription();
+    }
+
+    public void updateStatus(Status updatedStatus) {
+        if (this.status == IN_PROGRESS && updatedStatus == PENDING) {
+            this.status = PENDING;
+        }
+        if (this.status == PENDING) {
+            this.status = updatedStatus;
+        }
     }
 }

@@ -1,6 +1,7 @@
 package com.example.todolist.global.exception;
 
 import com.example.todolist.domain.member.exception.MemberException;
+import com.example.todolist.domain.todolist.exception.TodoException;
 import com.example.todolist.global.utils.MessageSourceUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,6 +19,12 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(MemberException.class)
     public ResponseEntity<ErrorResponse> handleException(MemberException exception) {
+        var message = MessageSourceUtils.getMessage(exception.getErrorCode());
+        return new ResponseEntity<>(new ErrorResponse(message), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(TodoException.class)
+    public ResponseEntity<ErrorResponse> handleException(TodoException exception) {
         var message = MessageSourceUtils.getMessage(exception.getErrorCode());
         return new ResponseEntity<>(new ErrorResponse(message), HttpStatus.BAD_REQUEST);
     }
