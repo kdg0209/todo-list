@@ -113,3 +113,43 @@
     "createdDatetime": null
 }
 ```
+
+<br>
+
+### 전체 목록
+
+- endpoint: http://localhost:8080/todos?page=0&size=10
+- http-method: GET
+
+```text
+> 요청값
+--header 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsInJvbGVzIjoiUk9MRV9VU0VSIiwiZXhwIjoxNzE3NjY5MzM4fQ.WyS5sN9Zu-GewPH5OJ2K0HFMmuIAy1XOl6UgWhVv5ksrSiv-ZRLCaoi_MFSkW-nFC_vfMtzg-FabXP-JtR-JNw
+
+> 응답값
+{
+    "todos": [
+        {
+            "id": 25,
+            "title": "title 12",
+            "contents": "123 12",
+            "status": "대기",
+            "createdDatetime": "2024-06-06T18:41:14.554422"
+        },
+        {
+            "id": 24,
+            "title": "title 12",
+            "contents": "123 12",
+            "status": "대기",
+            "createdDatetime": "2024-06-06T18:41:14.031775"
+        }
+      ... 생략
+    ]
+}
+```
+
+<br>
+
+### TODO 상태 변경
+
+- endpoint: http://localhost:8080/todos/status
+- http-method: PUT
