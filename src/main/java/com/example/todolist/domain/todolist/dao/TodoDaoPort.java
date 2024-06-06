@@ -11,6 +11,7 @@ import java.util.Optional;
 public interface TodoDaoPort {
 
     Todo save(Todo todo);
+    Optional<Todo> findById(Long id, String memberId);
     Page<TodoQueryDto> findAll(Pageable pageable, String memberId);
     Optional<TodoLatestQueryDto> findLatestByMemberId(String memberId);
 }

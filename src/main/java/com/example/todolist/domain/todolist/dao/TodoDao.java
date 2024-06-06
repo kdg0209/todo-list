@@ -30,6 +30,19 @@ class TodoDao implements TodoDaoPort {
     }
 
     @Override
+    public Optional<Todo> findById(Long id, String memberId) {
+        Todo result = queryFactory
+                .selectFrom(todo)
+                .where(
+                        todo.id.eq(id),
+                        todo.member.memberId.eq(memberId)
+                )
+                .fetchFirst();
+
+        return Optional.ofNullable(result);
+    }
+
+    @Override
     public Page<TodoQueryDto> findAll(Pageable pageable, String memberId) {
         var contents = queryFactory
                 .select(new QTodoQueryDto(

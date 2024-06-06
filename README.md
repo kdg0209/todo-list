@@ -153,3 +153,18 @@
 
 - endpoint: http://localhost:8080/todos/status
 - http-method: PUT
+
+```text
+> 요청값
+--header 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsInJvbGVzIjoiUk9MRV9VU0VSIiwiZXhwIjoxNzE3NjY5MzM4fQ.WyS5sN9Zu-GewPH5OJ2K0HFMmuIAy1XOl6UgWhVv5ksrSiv-ZRLCaoi_MFSkW-nFC_vfMtzg-FabXP-JtR-JNw
+{
+    "id": 2,
+    "status": "DONE"
+}
+
+> 응답값
+{
+    "id": 2,
+    "status": "완료"
+}
+```
