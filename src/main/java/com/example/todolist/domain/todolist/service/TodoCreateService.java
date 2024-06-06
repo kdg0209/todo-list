@@ -11,6 +11,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
+
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -27,6 +29,7 @@ public class TodoCreateService {
                 .title(request.title())
                 .contents(request.contents())
                 .status(request.status())
+                .createdDatetime(LocalDateTime.now())
                 .member(member)
                 .build();
 

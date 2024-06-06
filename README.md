@@ -83,3 +83,33 @@
     "todoId": 1
 }
 ```
+
+<br>
+
+### 가장 최근의 TODO 1개 조회
+
+- endpoint: http://localhost:8080/todos/latest
+- http-method: GET
+
+```text
+> 요청값
+--header 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsInJvbGVzIjoiUk9MRV9VU0VSIiwiZXhwIjoxNzE3NjY5MzM4fQ.WyS5sN9Zu-GewPH5OJ2K0HFMmuIAy1XOl6UgWhVv5ksrSiv-ZRLCaoi_MFSkW-nFC_vfMtzg-FabXP-JtR-JNw
+
+> 응답값: TODO가 있는 경우
+{
+    "id": 4,
+    "title": "title 3",
+    "contents": "contents 3",
+    "status": "TODO",
+    "createdDatetime": "2024-06-06T18:16:47.380367"
+}
+
+> 응답값: TODO가 없는 경우
+{
+    "id": null,
+    "title": null,
+    "contents": null,
+    "status": null,
+    "createdDatetime": null
+}
+```
