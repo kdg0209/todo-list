@@ -32,6 +32,8 @@ public class QMember extends EntityPathBase<Member> {
 
     public final StringPath password = createString("password");
 
+    public final ListPath<com.example.todolist.domain.todolist.domain.Todo, com.example.todolist.domain.todolist.domain.QTodo> todos = this.<com.example.todolist.domain.todolist.domain.Todo, com.example.todolist.domain.todolist.domain.QTodo>createList("todos", com.example.todolist.domain.todolist.domain.Todo.class, com.example.todolist.domain.todolist.domain.QTodo.class, PathInits.DIRECT2);
+
     public QMember(String variable) {
         super(Member.class, forVariable(variable));
     }

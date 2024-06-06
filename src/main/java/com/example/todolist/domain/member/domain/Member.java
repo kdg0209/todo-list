@@ -1,5 +1,6 @@
 package com.example.todolist.domain.member.domain;
 
+import com.example.todolist.domain.todolist.domain.Todo;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -7,7 +8,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Comment;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -39,6 +42,9 @@ public class Member {
 
     @OneToMany(mappedBy = "member", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Authority> authorities = new HashSet<>();
+
+    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Todo> todos = new ArrayList<>();
 
     @Builder
     public Member(String memberId, String password, String nickName, AuthorityType authorityType) {
