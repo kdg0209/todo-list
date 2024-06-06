@@ -59,3 +59,27 @@
 }
 ```
 
+<br>
+
+## TODO LIST 관련
+
+### todo 작성
+
+- endpoint: http://localhost:8080/todos
+- http-method: POST
+
+```text
+> 요청값
+--header 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsInJvbGVzIjoiUk9MRV9VU0VSIiwiZXhwIjoxNzE3NjY5MzM4fQ.WyS5sN9Zu-GewPH5OJ2K0HFMmuIAy1XOl6UgWhVv5ksrSiv-ZRLCaoi_MFSkW-nFC_vfMtzg-FabXP-JtR-JNw
+
+{
+    "title": "title",
+    "contents": "contents",
+    "status": "TODO" [TODO, IN_PROGRESS, DONE, PENDING]
+}
+
+> 응답값
+{
+    "todoId": 1
+}
+```
