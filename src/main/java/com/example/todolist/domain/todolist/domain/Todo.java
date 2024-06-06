@@ -8,6 +8,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Comment;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Entity
 @Table(name = "todos")
@@ -32,15 +34,20 @@ public class Todo {
     @Enumerated(EnumType.STRING)
     private Status status;
 
+    @Comment(value = "작성일")
+    @Column(name = "created_datetime", nullable = false, updatable = false)
+    private LocalDateTime createdDatetime;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id", foreignKey = @ForeignKey(name = "fk_todos_members"))
     private Member member;
 
     @Builder
-    public Todo(String title, String contents, Status status, Member member) {
+    public Todo(String title, String contents, Status status, LocalDateTime createdDatetime, Member member) {
         this.title = title;
         this.contents = contents;
         this.status = status;
+        this.createdDatetime = createdDatetime;
         this.member = member;
     }
 }
